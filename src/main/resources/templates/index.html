@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gym Management System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #f0f2f5; }
+        .navbar { background: #1a1a2e; color: white; padding: 15px 30px; display: flex; align-items: center; gap: 30px; }
+        .navbar h1 { font-size: 22px; color: #e94560; }
+        .navbar a { color: #ccc; text-decoration: none; font-size: 15px; padding: 8px 15px; border-radius: 5px; }
+        .navbar a:hover { background: #e94560; color: white; }
+        .hero { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 60px 40px; text-align: center; }
+        .hero h2 { font-size: 40px; margin-bottom: 10px; }
+        .hero p { font-size: 18px; color: #aaa; }
+        .cards { display: flex; gap: 25px; padding: 40px; justify-content: center; flex-wrap: wrap; }
+        .card { background: white; border-radius: 12px; padding: 30px 40px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); min-width: 200px; }
+        .card .number { font-size: 48px; font-weight: bold; }
+        .card .label { color: #666; font-size: 16px; margin-top: 5px; }
+        .card.blue .number { color: #2196F3; }
+        .card.green .number { color: #4CAF50; }
+        .card.orange .number { color: #FF9800; }
+        .card.red .number { color: #e94560; }
+        .nav-buttons { display: flex; gap: 20px; padding: 0 40px 40px; justify-content: center; flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: bold; color: white; }
+        .btn-blue { background: #2196F3; }
+        .btn-green { background: #4CAF50; }
+        .btn-orange { background: #FF9800; }
+        .btn:hover { opacity: 0.85; }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <h1>💪 GymPro</h1>
+    <a href="/">Dashboard</a>
+    <a href="/members">Members</a>
+    <a href="/trainers">Trainers</a>
+    <a href="/plans">Plans</a>
+</nav>
+
+<div class="hero">
+    <h2>Gym Management System</h2>
+    <p>Manage your gym members, trainers, and membership plans</p>
+</div>
+
+<div class="cards">
+    <div class="card blue">
+        <div class="number" th:text="${totalMembers}">0</div>
+        <div class="label">Total Members</div>
+    </div>
+    <div class="card green">
+        <div class="number" th:text="${activeMembers}">0</div>
+        <div class="label">Active Members</div>
+    </div>
+    <div class="card orange">
+        <div class="number" th:text="${totalTrainers}">0</div>
+        <div class="label">Trainers</div>
+    </div>
+    <div class="card red">
+        <div class="number" th:text="${totalPlans}">0</div>
+        <div class="label">Membership Plans</div>
+    </div>
+</div>
+
+<div class="nav-buttons">
+    <a href="/members" class="btn btn-blue">👥 Manage Members</a>
+    <a href="/trainers" class="btn btn-green">🏋️ Manage Trainers</a>
+    <a href="/plans" class="btn btn-orange">📋 Manage Plans</a>
+</div>
+</body>
+</html>
