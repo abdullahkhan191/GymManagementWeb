@@ -1,0 +1,16 @@
+FROM selenium/standalone-chrome:latest
+
+USER root
+
+RUN apt-get update && apt-get install -y \
+    openjdk-21-jdk \
+    maven \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY . .
+
+RUN mvn test -Dtest=SeleniumTest -DfailIfNoTests=false || true
+
+CMD ["mvn", "test", "-Dtest=SeleniumTest", "-DfailIfNoTests=false"]
