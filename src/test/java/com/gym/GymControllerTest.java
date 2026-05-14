@@ -16,9 +16,12 @@ public class GymControllerTest {
     @Test
     public void testMemberSave() {
         Member member = new Member();
-        member.setName("Test User");
-        member.setEmail("test@gym.com");
+        member.setId(9999);
+        member.setFull_name("Test User");
         member.setPhone("1234567890");
+        member.setGender("Male");
+        member.setAge(25);
+        member.setStatus("Active");
         Member saved = memberRepository.save(member);
         assertNotNull(saved.getId());
         memberRepository.delete(saved);
@@ -27,10 +30,10 @@ public class GymControllerTest {
     @Test
     public void testMemberNotNull() {
         Member member = new Member();
-        member.setName("Abdullah");
-        member.setEmail("abdullah@gym.com");
+        member.setId(8888);
+        member.setFull_name("Abdullah");
         member.setPhone("0300000000");
         assertNotNull(member);
-        assertEquals("Abdullah", member.getName());
+        assertEquals("Abdullah", member.getFull_name());
     }
 }
